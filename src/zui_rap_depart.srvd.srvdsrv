@@ -1,0 +1,5 @@
+@EndUserText.label: 'CoA: RAP UI Service for Department'
+define service zui_rap_depart {
+  expose zc_rap_depart;
+  expose zc_rap_employee;
+}

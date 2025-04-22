@@ -1,0 +1,42 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Department',
+                typeNamePlural: 'Departments',
+                title: { type: #STANDARD, label: 'Department', value: 'DepId' } },
+  presentationVariant: [{ sortOrder: [{ by: 'DepName', direction:  #ASC }] }] }
+annotate view zc_rap_depart
+    with 
+{
+    @UI.facet: [ { id:           'Department',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Department',
+                 position:        10 },
+               { id:              'Employee',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Employee',
+                 position:        20,
+                 targetElement:   '_Employee'} ]
+
+    @UI:{ identification: [{ position: 1, label: 'Department ID' }] }
+    DepId;
+    @UI: {  lineItem:       [ { position: 10, label: 'Department Name', criticality: 'Criticality' } ],
+            identification: [ { position: 10 } ],
+            selectionField: [ { position: 10 } ] } 
+    DepName;
+    
+    @UI.hidden: true
+    IsActive;
+    
+    @UI.hidden: true
+    CreatedBy;
+    @UI.hidden: true
+    CreatedAt;
+    @UI.hidden: true
+    LastChangedBy;
+    @UI.hidden: true
+    LastChangedAt;
+    @UI.hidden: true
+    LocalLastChangedAt;    
+}
